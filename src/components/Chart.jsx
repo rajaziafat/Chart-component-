@@ -1,5 +1,5 @@
 'use client'
-import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, ReferenceLine, Label } from 'recharts';
+import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, ReferenceLine, } from 'recharts';
 
 const data = [
     { month: "January", price: 165 },
@@ -8,24 +8,49 @@ const data = [
     { month: "April", price: 165 },
     { month: "May", price: 175 },
     { month: "June", price: 165 },
-
 ];
+
+const CustomizedXAxisTick = (props) => {
+    const { x, y, payload, width } = props;
+
+    // Define the number of interval lines between each data point
+    const intervalLinesCount = 9; // Adjust as needed
+
+    // Calculate the space between ticks
+    const spaceBetweenTicks = width / (data.length - 1);
+
+    // Calculate the space between interval lines
+    const spaceBetweenIntervalLines = spaceBetweenTicks / (intervalLinesCount + 1);
+
+    // Calculate the length of interval lines
+    const intervalLineLength = 10; // Adjust as needed
+
+    // Generate an array of x-coordinates for interval lines
+    const intervalLineXCoords = Array.from({ length: intervalLinesCount }, (_, i) => x + (i + 1) * spaceBetweenIntervalLines);
+  const topMargin = 6; // Adjust as needed
+
+    return (
+        <g>
+            {/* Render tick line */}
+            <line x1={x} y1={y} x2={x} y2={y + 12} stroke="#ffffff" />
+            {/* Render interval lines */}
+            {intervalLineXCoords.map((lineX, index) => (
+                <line key={index} x1={lineX} y1={y + topMargin} x2={lineX} y2={y - intervalLineLength + 10} stroke="#ffffff" strokeWidth={1}  />
+            ))}
+            {/* Render month label */}
+            <text x={x} y={y + 24} textAnchor="middle" fill="#ffffff" fontSize={14}>
+                {payload.value}
+            </text>
+        </g>
+    );
+};
 
 
 const Barchart = () => {
 
-    const startValue = 150;
-
-
     return (
         <ResponsiveContainer width="100%" height="100%">
-            <AreaChart
-        
-
-                data={data}
-           
-            >
-
+            <AreaChart data={data}>
                 <defs>
                     <linearGradient id="chartColor" x1="0" y1="0" x2="0" y2="1.5">
                         <stop offset="5%" stopColor="#c2b9cc" stopOpacity={1} />
@@ -33,64 +58,56 @@ const Barchart = () => {
                     </linearGradient>
                 </defs>
                 <CartesianGrid strokeDasharray="8" horizontalPoints={[170, 300]} vertical={false} />
-
                 <text
-            
-            x={"88%"}
-            y={"84%"}
-            
-               
-                className=' font-bold fill-[#777]  text-[10px] sm:text-[12px]'
-                width={200}
-                scaleToFit={true}
-                textAnchor='middle'
-                verticalAnchor='middle'
-            >
-                PREVIOUS CLOSE
-            </text>
+                    x={"88%"}
+                    y={"84%"}
+                    className=' font-bold fill-[#777]  text-[10px] sm:text-[12px]'
+                    width={200}
+                    scaleToFit={true}
+                    textAnchor='middle'
+                    verticalAnchor='middle'
+                >
+                    PREVIOUS CLOSE
+                </text>
                 <text
-               
-               x={"88%"}
-               y={"90%"}
-                className=' text-[18px] font-normal fill-white  sm:text-[23px]'
-                width={200}
-                scaleToFit={true}
-                textAnchor='middle'
-                verticalAnchor='middle'
-            >
-                $168.82
-            </text>
-
-
-                <XAxis tickLine={true} tick={{ fill: '#ffffff', fontSize: 14, fontWeight: 400 }}
+                    x={"88%"}
+                    y={"90%"}
+                    className=' text-[18px] font-normal fill-white  sm:text-[23px]'
+                    width={200}
+                    scaleToFit={true}
+                    textAnchor='middle'
+                    verticalAnchor='middle'
+                >
+                    $168.82
+                </text>
+                <XAxis
+                    tickLine={true}
+                   
                     axisLine={{ stroke: 'white' }}
                     dataKey="month"
-                    allowDuplicatedCategory={false} />
-
-               
-
+                    allowDuplicatedCategory={false}
+                    className='font-Lexend'
+                    tick={<CustomizedXAxisTick />}
+                />
                 <YAxis
-                    dataKey="price" domain={150}
+                    dataKey="price"
+                    domain={150}
+                    
                     allowDuplicatedCategory={false}
                     axisLine={{ stroke: 'white' }}
                     ticks={[150, 165, 180]}
+                    tickLine={{stroke:'#ffffff'}}
+                    className='font-Lexend'
                     padding={{ top: 30, bottom: 43 }} // Add padding top and bottom
-                    tick={{ fill: '#aba4a4', fontSize: 14, fontWeight: 700 }}
+                    tick={{ fill: '#199692', fontSize: 14, fontWeight: 700 }}
                     tickFormatter={(value) => `$ ${value}`}
                 />
                 <Tooltip />
-
                 <Area type="monotone" dataKey="price" stroke="#9586a3" fillOpacity={1} strokeWidth={3} fill="url(#chartColor)" />
                 <ReferenceLine y={150} strokeWidth={1} stroke="white" strokeDasharray="0" />
                 <ReferenceLine y={165} strokeWidth={1} stroke="white" strokeDasharray="0" />
-
             </AreaChart>
-
         </ResponsiveContainer>
-
-
-
-
     );
 };
 

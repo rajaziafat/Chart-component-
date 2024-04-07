@@ -13,8 +13,7 @@ module.exports = {
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
       fontFamily: {
-        Montserrat: ['Montserrat', "sans-seri"],
-        Noto: ['Noto Sans', 'sans-serif'],
+        Lexend: [ "Lexend", "sans-serif"],
       },
       gridTemplateColumns: {
         '3f': 'repeat(3, 1fr)',

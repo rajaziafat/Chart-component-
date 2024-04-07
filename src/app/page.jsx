@@ -13,12 +13,12 @@ const page = () => {
           {/* ---- left  */}
           <div>
             <div className='text-white'>
-              <p className='font-bold font-Montserrat text-sm sm:text-lg'>AAPL</p>
-              <h1 className='text-white font-Noto font-medium leading-normal sm:leading-[60px] text-[40px] sm:text-[60px]'>$169.47</h1>
+              <p className='font-bold font-Lexend text-sm sm:text-lg'>AAPL</p>
+              <h1 className='text-white font-Lexend font-light leading-normal sm:leading-[60px] text-[40px] sm:text-[60px]'>$169.47</h1>
 
               {/* ---- white button  */}
-              <div className='flex my-2 items-center bg-white px-3 tracking-wide font-bold py-1 rounded-full gap-1 text-blue-950'>
-              <FaArrowRightLong size={23} className='rotate-[-35deg] text-[#679290] font-bold text-sm sm:text-lg' />
+              <div className='flex my-1 items-center w-full ssm:w-[290px] xsm:w-[300px] font-Lexend  bg-white px-3 justify-center tracking-wide font-bold py-1 rounded-full gap-1 text-blue-950'>
+              <FaArrowRightLong size={23} className='arrow text-[#679290] font-bold text-sm sm:text-lg' />
                 <p>USD + 3.48 <span>
                   (+1.50%)
                 </span>
@@ -28,23 +28,23 @@ const page = () => {
 
               <div className='mt-5 my-6 flex items-center flex-wrap gap-8'>
                 <div className=''>
-                  <p className='font-extrabold text-[18px] text-[#277b76] font-Montserrat'>OPEN</p>
+                  <p className='font-bold text-[18px] text-[#277b76] font-Lexend'>OPEN</p>
                   <h4 className=' text-[22px] xsm:text-[25px] md:text-[34px] leading-[25px]'>$169.59</h4>
                 </div>
                 <div className=''>
-                  <p className='font-extrabold text-[18px] text-[#277b76] font-Montserrat'>HIGH</p>
+                  <p className='font-bold text-[18px] text-[#277b76] font-Lexend'>HIGH</p>
                   <h4 className=' text-[22px] xsm:text-[25px] md:text-[34px] leading-[25px]'>$169.91</h4>
                 </div>
                 <div className=''>
-                  <p className='font-extrabold text-[18px] text-[#277b76] font-Montserrat'>LOW</p>
+                  <p className='font-bold text-[18px] text-[#277b76] font-Lexend'>LOW</p>
                   <h4 className=' text-[22px] xsm:text-[25px] md:text-[34px] leading-[25px]'>$168.95</h4>
                 </div>
                 <div className=''>
-                  <p className='font-extrabold text-[18px] text-[#277b76] font-Montserrat'>DIV YIELD</p>
+                  <p className='font-bold text-[18px] text-[#277b76] font-Lexend'>DIV YIELD</p>
                   <h4 className=' text-[22px] xsm:text-[25px] md:text-[34px] leading-[25px]'>0.57%</h4>
                 </div>
               </div>
-              <h2 className='text-white font-semibold text-[20px] xsm:text-[30px] sm:text-[35px] font-sans'>6 Month Stock Price History</h2>
+              <h2 className='text-white font-Lexend font-medium text-[20px] xsm:text-[30px] sm:text-[35px] '>6 Month Stock Price History</h2>
             </div>
           </div>
 
