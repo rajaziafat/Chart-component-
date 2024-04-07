@@ -13,31 +13,29 @@ const data = [
 const CustomizedXAxisTick = (props) => {
     const { x, y, payload, width } = props;
 
-    // Define the number of interval lines between each data point
-    const intervalLinesCount = 9; // Adjust as needed
+    const intervalLinesCount = 25; 
 
-    // Calculate the space between ticks
+
     const spaceBetweenTicks = width / (data.length - 1);
 
-    // Calculate the space between interval lines
+
     const spaceBetweenIntervalLines = spaceBetweenTicks / (intervalLinesCount + 1);
 
-    // Calculate the length of interval lines
-    const intervalLineLength = 10; // Adjust as needed
+    const intervalLineLength = 10; 
 
-    // Generate an array of x-coordinates for interval lines
+    
     const intervalLineXCoords = Array.from({ length: intervalLinesCount }, (_, i) => x + (i + 1) * spaceBetweenIntervalLines);
-  const topMargin = 6; // Adjust as needed
+  const topMargin = 6; 
 
     return (
         <g>
-            {/* Render tick line */}
+           
             <line x1={x} y1={y} x2={x} y2={y + 12} stroke="#ffffff" />
-            {/* Render interval lines */}
+            
             {intervalLineXCoords.map((lineX, index) => (
                 <line key={index} x1={lineX} y1={y + topMargin} x2={lineX} y2={y - intervalLineLength + 10} stroke="#ffffff" strokeWidth={1}  />
             ))}
-            {/* Render month label */}
+        
             <text x={x} y={y + 24} textAnchor="middle" fill="#ffffff" fontSize={14}>
                 {payload.value}
             </text>
