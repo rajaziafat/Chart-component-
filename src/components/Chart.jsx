@@ -36,9 +36,11 @@ const Barchart = () => {
 
                 <text
             
+            x={"88%"}
+            y={"84%"}
             
                
-                className=' translate-x-[85%] xsm:translate-x-[90%]  translate-y-[84%] font-bold fill-[#777]  text-[10px] sm:text-[12px]'
+                className=' font-bold fill-[#777]  text-[10px] sm:text-[12px]'
                 width={200}
                 scaleToFit={true}
                 textAnchor='middle'
@@ -48,8 +50,9 @@ const Barchart = () => {
             </text>
                 <text
                
-           
-                className='translate-x-[85%] xsm:translate-x-[90%] translate-y-[90%] text-[18px] font-normal fill-white  sm:text-[23px]'
+               x={"88%"}
+               y={"90%"}
+                className=' text-[18px] font-normal fill-white  sm:text-[23px]'
                 width={200}
                 scaleToFit={true}
                 textAnchor='middle'
